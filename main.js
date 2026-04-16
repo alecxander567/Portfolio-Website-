@@ -1,8 +1,3 @@
-/* ============================================
-   PORTFOLIO — main.js
-   ============================================ */
-
-/* ---------- Dark mode ---------- */
 function applyTheme() {
   const saved = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -24,7 +19,6 @@ function updateThemeBtn(isDark) {
 
 applyTheme();
 
-/* ---------- Custom cursor ---------- */
 const cursor = document.getElementById("cursor");
 const cursorRing = document.getElementById("cursor-ring");
 
@@ -40,7 +34,6 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.top = mouseY + "px";
 });
 
-// Smooth ring follow
 (function animateRing() {
   ringX += (mouseX - ringX) * 0.12;
   ringY += (mouseY - ringY) * 0.12;
@@ -49,7 +42,6 @@ document.addEventListener("mousemove", (e) => {
   requestAnimationFrame(animateRing);
 })();
 
-// Hover state
 document
   .querySelectorAll("a, button, .project-card, .skill-pill")
   .forEach((el) => {
@@ -61,7 +53,6 @@ document
     );
   });
 
-/* ---------- Scroll fade-up (IntersectionObserver) ---------- */
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -76,7 +67,6 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
 
-/* ---------- Active nav link on scroll ---------- */
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -102,7 +92,6 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((s) => sectionObserver.observe(s));
 
-/* ---------- Mobile nav toggle ---------- */
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -111,40 +100,33 @@ if (menuBtn && mobileMenu) {
     mobileMenu.classList.toggle("hidden");
   });
 
-  // Close on link click
   mobileMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
   });
 }
 
-/* ---------- Current year in footer ---------- */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---------- Toast alert ---------- */
 function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
   const toastMsg = document.getElementById("toast-msg");
   const toastIcon = document.getElementById("toast-icon");
 
-  // Set content
   toastMsg.textContent = message;
   toastIcon.textContent = type === "success" ? "✓" : "✗";
 
-  // Set style based on type
   toast.className = `fixed bottom-8 right-8 z-50 flex items-center gap-3 px-6 py-4 rounded border backdrop-blur-md transition-all duration-500 ${
     type === "success" ?
       "bg-white dark:bg-black border-black/20 dark:border-white/20 text-black dark:text-white"
     : "bg-white dark:bg-black border-red-400/50 text-red-500"
   }`;
 
-  // Slide in
   requestAnimationFrame(() => {
     toast.style.transform = "translateY(0)";
     toast.style.opacity = "1";
   });
 
-  // Slide out after 4s
   setTimeout(() => {
     toast.style.transform = "translateY(6rem)";
     toast.style.opacity = "0";
@@ -152,7 +134,6 @@ function showToast(message, type = "success") {
   }, 4000);
 }
 
-/* ---------- Contact form ---------- */
 const contactForm = document.getElementById("contact-form");
 const submitBtn = document.getElementById("submit-btn");
 
@@ -171,7 +152,6 @@ if (contactForm) {
       return;
     }
 
-    // Loading state
     submitBtn.disabled = true;
     submitBtn.textContent = "SENDING…";
 
