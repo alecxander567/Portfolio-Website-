@@ -196,11 +196,11 @@ nav button {
   color: #000;
 }
 
-:not(.dark) .text-black\/60,
-:not(.dark) .text-black\/70,
-:not(.dark) .text-black\/40,
-:not(.dark) .text-black\/50,
-:not(.dark) .text-black\/35,
-:not(.dark) .text-black\/30 {
+html:not(.dark) .text-black\/60,
+html:not(.dark) .text-black\/70,
+html:not(.dark) .text-black\/40,
+html:not(.dark) .text-black\/50,
+html:not(.dark) .text-black\/35,
+html:not(.dark) .text-black\/30 {
   color: rgba(0, 0, 0, 0.85) !important;
 }
