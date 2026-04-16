@@ -137,7 +137,7 @@ function showToast(message, type = "success") {
 const contactForm = document.getElementById("contact-form");
 const submitBtn = document.getElementById("submit-btn");
 
-const API_URL = "http://localhost:5000/api/contact";
+const API_URL = "https://portfolio-email-sender-dvc1.onrender.com/api/contact";
 
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
