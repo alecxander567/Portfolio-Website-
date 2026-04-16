@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio Website</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Bebas Neue", "sans-serif"],
+              mono: ["DM Mono", "monospace"],
+              body: ["DM Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body
+    class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 dot-grid">
+    <!-- Custom cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-md">
+      <!-- Logo -->
+      <a
+        href="#hero"
+        class="font-display text-2xl tracking-widest cursor-none underline-link">
+        My<span class="opacity-40"> Portfolio</span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a
+          href="#about"
+          class="nav-link section-label opacity-40 hover:opacity-100 transition-opacity underline-link"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="nav-link section-label opacity-40 hover:opacity-100 transition-opacity underline-link"
+          >Projects</a
+        >
+        <a
+          href="#experience"
+          class="nav-link section-label opacity-40 hover:opacity-100 transition-opacity underline-link"
+          >Experience</a
+        >
+        <a
+          href="#contact"
+          class="nav-link section-label opacity-40 hover:opacity-100 transition-opacity underline-link"
+          >Contact</a
+        >
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Theme toggle -->
+        <button
+          id="theme-btn"
+          onclick="toggleDarkMode()"
+          class="section-label border border-black/20 dark:border-white/20 px-3 py-1.5 rounded hover:border-black dark:hover:border-white transition-colors cursor-none">
+          ☽ Dark
+        </button>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="menu-btn"
+          class="md:hidden border border-black/20 dark:border-white/20 px-3 py-1.5 rounded cursor-none">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="hidden fixed top-[61px] left-0 right-0 z-40 bg-white dark:bg-black border-b border-black/10 dark:border-white/10 px-6 py-4 flex-col gap-4">
+      <a
+        href="#about"
+        class="section-label block py-2 border-b border-black/10 dark:border-white/10 underline-link"
+        >About</a
+      >
+      <a
+        href="#projects"
+        class="section-label block py-2 border-b border-black/10 dark:border-white/10 underline-link"
+        >Projects</a
+      >
+      <a
+        href="#experience"
+        class="section-label block py-2 border-b border-black/10 dark:border-white/10 underline-link"
+        >Experience</a
+      >
+      <a href="#contact" class="section-label block py-2 underline-link"
+        >Contact</a
+      >
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <section
+      id="hero"
+      class="min-h-screen flex flex-col justify-center md:justify-end px-6 md:px-12 pt-12 md:pt-32 pb-12 md:pb-16 border-b border-black/10 dark:border-white/10">
+      <!-- Eyebrow -->
+      <p class="section-label mb-6 fade-up">
+        <span
+          class="inline-block w-6 h-px bg-black dark:bg-white align-middle mr-2"></span>
+        Available for opportunities
+      </p>
+
+      <!-- Giant name -->
+      <h1 class="hero-display fade-up">
+        Hi, I'm<br />
+        <span class="italic">Alec</span> Xander
+      </h1>
+
+      <!-- Subtitle row -->
+      <div
+        class="mt-8 flex flex-col md:flex-row md:items-end justify-between gap-6 fade-up">
+        <p
+          class="text-lg md:text-xl font-light text-black/60 dark:text-white/60 max-w-md leading-relaxed">
+          Aspiring software engineer building full-stack products that are fast,
+          accessible, and thoughtfully designed.
+        </p>
+
+        <div class="flex gap-4">
+          <a
+            href="#projects"
+            class="border border-black dark:border-white px-6 py-3 section-label hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors underline-link">
+            View Projects
+          </a>
+          <a
+            href="#contact"
+            class="bg-black dark:bg-white text-white dark:text-black px-6 py-3 section-label hover:opacity-75 transition-opacity underline-link">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div
+      class="overflow-hidden border-b border-black/10 dark:border-white/10 py-4 bg-black dark:bg-white text-white dark:text-black">
+      <div
+        class="marquee-inner font-display text-2xl tracking-widest whitespace-nowrap">
+        <span class="px-8">JAVA</span><span class="opacity-30 px-2">·</span>
+        <span class="px-8">SPRING BOOT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">REACT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">NEXT.JS</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">DJANGO</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">FASTAPI</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">LARAVEL</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">REACT NATIVE</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">POSTGRESQL</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">MONGODB</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">FIREBASE</span><span class="opacity-30 px-2">·</span>
+        <span class="px-8">TYPESCRIPT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">PYTHON</span
+        ><span class="opacity-30 px-2">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="px-8">JAVA</span><span class="opacity-30 px-2">·</span>
+        <span class="px-8">SPRING BOOT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">REACT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">NEXT.JS</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">DJANGO</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">FASTAPI</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">LARAVEL</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">REACT NATIVE</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">POSTGRESQL</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">MONGODB</span
+        ><span class="opacity-30 px-2">·</span>
+        <span class="px-8">FIREBASE</span><span class="opacity-30 px-2">·</span>
+        <span class="px-8">TYPESCRIPT</span
+        ><span class="opacity-30 px-2">·</span> <span class="px-8">PYTHON</span
+        ><span class="opacity-30 px-2">·</span>
+      </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section
+      id="about"
+      class="px-6 md:px-12 py-24 border-b border-black/10 dark:border-white/10">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-3 fade-up">
+          <span
+            class="inline-block w-6 h-px bg-black dark:bg-white align-middle mr-2"></span>
+          01 — About
+        </p>
+        <h2 class="font-display text-6xl md:text-8xl mb-16 fade-up">
+          ABOUT ME
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-16">
+          <!-- Left: bio -->
+          <div class="fade-up">
+            <p
+              class="text-lg font-light leading-relaxed text-black/70 dark:text-white/70 mb-6">
+              I am passionate about building full-stack scalable applications
+              and learning new tools. I focus on system architecture, clean
+              UI/UX, and deploying systems that actually work.
+            </p>
+
+            <!-- PLACEHOLDER: your story -->
+            <div
+              class="border border-dashed border-black/20 dark:border-white/20 rounded p-4 mb-6">
+              <p class="section-label text-black/40 dark:text-white/40 mb-1">
+                💡 Background Information
+              </p>
+              <p class="text-sm text-black/40 dark:text-white/40 font-light">
+                I am a BSIT student at St. Peter's College of Toril, Inc. I am
+                currently in my 3rd year of college and I am expected to
+                graduate in 2027.
+              </p>
+            </div>
+
+            <!-- PLACEHOLDER: photo -->
+            <div
+              class="w-full overflow-hidden rounded border border-black/20 dark:border-white/20">
+              <img
+                src="assets/profile-portfolio.jpg"
+                alt="Portrait of Alec Xander"
+                class="block w-full h-auto max-h-[520px] object-contain mx-auto"
+                loading="lazy"
+                decoding="async" />
+            </div>
+          </div>
+
+          <!-- Right: skills + extras -->
+          <div class="fade-up">
+            <!-- ===== FULL TECH STACK ===== -->
+            <div class="space-y-6 mb-8">
+              <!-- Languages -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Languages
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Java</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >C#</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Python</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >TypeScript</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Node.js</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >PHP</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >C++</span
+                  >
+                </div>
+              </div>
+
+              <!-- Backend Frameworks -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Backend Frameworks
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Spring Boot</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Django</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Express</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >FastAPI</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Laravel</span
+                  >
+                </div>
+              </div>
+
+              <!-- Frontend Frameworks -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Frontend Frameworks
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >React</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Next.js</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Bootstrap</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Tailwind CSS</span
+                  >
+                </div>
+              </div>
+
+              <!-- Databases -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Databases
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >MySQL</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >PostgreSQL</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Supabase</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >MongoDB</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Firebase</span
+                  >
+                </div>
+              </div>
+
+              <!-- Mobile & Desktop -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Mobile & Desktop
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >React Native</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Java Swing</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >C# .NET</span
+                  >
+                </div>
+              </div>
+
+              <!-- Web & Tools -->
+              <div>
+                <p class="section-label mb-3 text-black/35 dark:text-white/35">
+                  Web & Tools
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >HTML</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >CSS</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >REST API</span
+                  >
+                  <span
+                    class="skill-pill border border-black/20 dark:border-white/20 px-3 py-1.5 section-label rounded-full"
+                    >Git</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- ===== END TECH STACK ===== -->
+
+            <!-- PLACEHOLDER: currently learning -->
+            <div
+              class="border border-dashed border-black/20 dark:border-white/20 rounded p-4 mb-4">
+              <p class="section-label text-black/40 dark:text-white/40 mb-1">
+                💡 Currently Learning
+              </p>
+              <p class="text-sm text-black/40 dark:text-white/40 font-light">
+                Machine Learning, System Design, Bash Scripting, and GitHub
+                Actions.
+              </p>
+            </div>
+
+            <!-- PLACEHOLDER: resume -->
+            <div
+              class="border border-dashed border-black/20 dark:border-white/20 rounded p-4">
+              <p class="section-label text-black/40 dark:text-white/40 mb-1">
+                💡 Add here
+              </p>
+              <p class="text-sm text-black/40 dark:text-white/40 font-light">
+                A "Download Resume" button linking to your PDF on Google Drive
+                or GitHub.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section
+      id="projects"
+      class="px-6 md:px-12 py-24 border-b border-black/10 dark:border-white/10">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-3 fade-up">
+          <span
+            class="inline-block w-6 h-px bg-black dark:bg-white align-middle mr-2"></span>
+          02 — Projects
+        </p>
+        <h2 class="font-display text-6xl md:text-8xl mb-16 fade-up">
+          PROJECTS
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6 stagger">
+          <!-- Project 01 (real) -->
+          <div
+            class="project-card fade-up border border-black/15 dark:border-white/15 rounded-lg p-6 bg-white/60 dark:bg-white/5 backdrop-blur-sm flex flex-col h-full">
+            <p class="section-label text-black/30 dark:text-white/30 mb-4">
+              01
+            </p>
+            <div
+              class="w-full overflow-hidden rounded border border-black/10 dark:border-white/10 mb-4 aspect-video">
+              <img
+                src="assets/project1.png"
+                alt="ARA Attendance System preview"
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async" />
+            </div>
+            <h3 class="font-display text-3xl mb-3">
+              ARA Attendance System using Biometric Technology
+            </h3>
+            <p
+              class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed mb-6">
+              A web based attendance system integrated to an esp32 and biometric
+              device.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >ESP32</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Biometric</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Web App</span
+              >
+            </div>
+            <div
+              class="flex gap-4 pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
+              <a
+                href="https://ara-system-app.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="section-label underline-link hover:opacity-70 transition-opacity"
+                >↗ Live Demo</a
+              >
+              <a
+                href="#"
+                class="section-label underline-link hover:opacity-70 transition-opacity text-black/50 dark:text-white/50"
+                >⌥ GitHub</a
+              >
+            </div>
+          </div>
+
+          <!-- Project 02 -->
+          <div
+            class="project-card fade-up border border-black/15 dark:border-white/15 rounded-lg p-6 bg-white/60 dark:bg-white/5 backdrop-blur-sm flex flex-col h-full">
+            <p class="section-label text-black/30 dark:text-white/30 mb-4">
+              02
+            </p>
+            <div
+              class="w-full overflow-hidden rounded border border-black/10 dark:border-white/10 mb-4 aspect-video">
+              <img
+                src="assets/project2.png"
+                alt="Custom Vision Tagger preview"
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async" />
+            </div>
+            <h3 class="font-display text-3xl mb-3">Custom Vision Tagger</h3>
+            <p
+              class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed mb-6">
+              A web based image recognition app using pytorch and fastapi. With
+              Supabase as database and Cloudinary for storage.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Web App</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Image Recognition</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >PyTorch</span
+              >
+            </div>
+            <div
+              class="flex gap-4 pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
+              <a
+                href="https://cvt-client.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="section-label underline-link hover:opacity-70 transition-opacity"
+                >↗ Live Demo</a
+              >
+              <a
+                href="#"
+                class="section-label underline-link hover:opacity-70 transition-opacity text-black/50 dark:text-white/50"
+                >⌥ GitHub</a
+              >
+            </div>
+          </div>
+
+          <!-- Project 03 -->
+          <div
+            class="project-card fade-up border border-black/15 dark:border-white/15 rounded-lg p-6 bg-white/60 dark:bg-white/5 backdrop-blur-sm flex flex-col h-full">
+            <p class="section-label text-black/30 dark:text-white/30 mb-4">
+              03
+            </p>
+            <div
+              class="w-full overflow-hidden rounded border border-black/10 dark:border-white/10 mb-4 aspect-video">
+              <img
+                src="assets/project3.png"
+                alt="PinPoint project preview"
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async" />
+            </div>
+            <h3 class="font-display text-3xl mb-3">PinPoint</h3>
+            <p
+              class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed mb-6">
+              QR based item finder application using django and react.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >QR Finder</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Web App</span
+              >
+              <span
+                class="section-label border border-black/15 dark:border-white/15 px-2 py-1 rounded text-black/50 dark:text-white/50"
+                >Community Platform</span
+              >
+            </div>
+            <div
+              class="flex gap-4 pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
+              <a
+                href="https://pin-point-client-ten.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="section-label underline-link hover:opacity-70 transition-opacity"
+                >↗ Live Demo</a
+              >
+              <a
+                href="#"
+                class="section-label underline-link hover:opacity-70 transition-opacity text-black/50 dark:text-white/50"
+                >⌥ GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section
+      id="experience"
+      class="px-6 md:px-12 py-24 border-b border-black/10 dark:border-white/10">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-3 fade-up">
+          <span
+            class="inline-block w-6 h-px bg-black dark:bg-white align-middle mr-2"></span>
+          03 — Experience
+        </p>
+        <h2 class="font-display text-6xl md:text-8xl mb-16 fade-up">
+          EXPERIENCE
+        </h2>
+
+        <div class="fade-up border-t border-black/10 dark:border-white/10">
+          <!-- 1 -->
+          <div
+            class="grid md:grid-cols-[160px_1fr] gap-8 py-8 border-b border-black/10 dark:border-white/10">
+            <p class="section-label text-black/40 dark:text-white/40 pt-1">
+              2023 — Present
+            </p>
+
+            <div>
+              <h3 class="font-display text-3xl mb-1">
+                Full-Stack Developer (Self-Learning)
+              </h3>
+              <p class="section-label text-black/50 dark:text-white/50 mb-3">
+                Independent Developer
+              </p>
+              <p
+                class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed">
+                Built and deployed full-stack applications using Python,
+                JavaScript, Java and modern web tools. Focused on REST APIs,
+                authentication systems, and real-world project development.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div
+            class="grid md:grid-cols-[160px_1fr] gap-8 py-8 border-b border-black/10 dark:border-white/10">
+            <p class="section-label text-black/40 dark:text-white/40 pt-1">
+              2025
+            </p>
+
+            <div>
+              <h3 class="font-display text-3xl mb-1">
+                Backend &amp; API Development Practice
+              </h3>
+              <p class="section-label text-black/50 dark:text-white/50 mb-3">
+                Personal Projects
+              </p>
+              <p
+                class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed">
+                Developed REST APIs using Django, FastAPI, Spring Boot,
+                Express.js and integrated frontend applications using React.
+                Worked on authentication systems, CRUD operations, and database
+                design.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="grid md:grid-cols-[160px_1fr] gap-8 py-8">
+            <p class="section-label text-black/40 dark:text-white/40 pt-1">
+              2023 — Present
+            </p>
+
+            <div>
+              <h3 class="font-display text-3xl mb-1">BSIT Student Developer</h3>
+              <p class="section-label text-black/50 dark:text-white/50 mb-3">
+                Academic Projects
+              </p>
+              <p
+                class="text-sm font-light text-black/60 dark:text-white/60 leading-relaxed">
+                Studying software development, data structures, and web
+                technologies while building practical applications using Java,
+                JavaScript, and Python.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="px-6 md:px-12 py-24">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-3 fade-up">
+          <span
+            class="inline-block w-6 h-px bg-black dark:bg-white align-middle mr-2"></span>
+          04 — Contact
+        </p>
+        <h2 class="font-display text-6xl md:text-8xl mb-8 fade-up">
+          LET'S TALK
+        </h2>
+
+        <p
+          class="fade-up text-lg font-light text-black/60 dark:text-white/60 max-w-xl leading-relaxed mb-12">
+          I'm a BSIT student and full-stack developer focused on building
+          real-world applications. I'm currently open to internships, junior
+          developer roles, and collaboration opportunities. Feel free to reach
+          out and I'd love to connect.
+        </p>
+
+        <div
+          class="fade-up flex flex-col md:flex-row flex-wrap gap-4 mb-16 items-center">
+          <a
+            href="#"
+            class="w-full md:w-auto text-center border border-black dark:border-white px-8 py-4 font-display text-2xl tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            EMAIL ME ↗
+          </a>
+
+          <a
+            href="#"
+            class="w-full md:w-auto text-center border border-black dark:border-white px-8 py-4 font-display text-2xl tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            LINKEDIN
+          </a>
+
+          <a
+            href="https://github.com/alecxander567"
+            class="w-full md:w-auto text-center border border-black dark:border-white px-8 py-4 font-display text-2xl tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            GITHUB
+          </a>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="fade-up max-w-2xl mx-auto">
+          <form id="contact-form" class="flex flex-col gap-4">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1">
+                <label
+                  for="name"
+                  class="section-label text-black/50 dark:text-white/50"
+                  >Name</label
+                >
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  class="bg-transparent border border-black/20 dark:border-white/20 rounded px-4 py-3 text-sm font-light focus:outline-none focus:border-black dark:focus:border-white transition-colors placeholder:text-black/25 dark:placeholder:text-white/25" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label
+                  for="email"
+                  class="section-label text-black/50 dark:text-white/50"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  class="bg-transparent border border-black/20 dark:border-white/20 rounded px-4 py-3 text-sm font-light focus:outline-none focus:border-black dark:focus:border-white transition-colors placeholder:text-black/25 dark:placeholder:text-white/25" />
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label
+                for="message"
+                class="section-label text-black/50 dark:text-white/50"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                placeholder="What's on your mind?"
+                class="bg-transparent border border-black/20 dark:border-white/20 rounded px-4 py-3 text-sm font-light focus:outline-none focus:border-black dark:focus:border-white transition-colors resize-none placeholder:text-black/25 dark:placeholder:text-white/25"></textarea>
+            </div>
+            <div class="flex justify-center md:justify-end">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full md:w-auto bg-black dark:bg-white text-white dark:text-black px-8 py-3 font-display text-xl tracking-widest hover:opacity-75 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
+                SEND MESSAGE ↗
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="px-6 md:px-12 py-6 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-2">
+      <p class="section-label text-black/40 dark:text-white/40">
+        © <span id="year"></span> All rights reserved
+      </p>
+      <p
+        class="section-label text-black/30 dark:text-white/30 italic font-mono">
+        Built from scratch · Designed with intention
+      </p>
+    </footer>
+
+    <!-- Alert Toast -->
+    <div
+      id="toast"
+      class="fixed bottom-8 right-8 z-50 flex items-center gap-3 px-6 py-4 rounded border backdrop-blur-md translate-y-24 opacity-0 transition-all duration-500 pointer-events-none">
+      <span id="toast-icon" class="text-lg"></span>
+      <p id="toast-msg" class="section-label text-sm"></p>
+    </div>
+
+    <!-- JS -->
+    <script src="main.js"></script>
+  </body>
+</html>

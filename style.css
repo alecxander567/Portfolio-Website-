@@ -1,0 +1,227 @@
+/* ============================================
+   PORTFOLIO — style.css
+   Black & White / Monochrome Theme
+   ============================================ */
+
+/* ---------- Custom cursor ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  cursor: none;
+}
+
+#cursor {
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.2s,
+    height 0.2s,
+    background 0.2s;
+}
+
+#cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease-out;
+}
+
+.dark #cursor {
+  background: #fff;
+}
+.dark #cursor-ring {
+  border-color: #fff;
+}
+
+body.hovering #cursor {
+  width: 6px;
+  height: 6px;
+}
+body.hovering #cursor-ring {
+  width: 52px;
+  height: 52px;
+}
+
+/* ---------- Dot-grid background ---------- */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.dark .dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+/* ---------- Scroll fade-up ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for children */
+.stagger > *:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.stagger > *:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.stagger > *:nth-child(3) {
+  transition-delay: 0.25s;
+}
+.stagger > *:nth-child(4) {
+  transition-delay: 0.35s;
+}
+.stagger > *:nth-child(5) {
+  transition-delay: 0.45s;
+}
+
+/* ---------- Hero giant text ---------- */
+.hero-display {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Navbar ---------- */
+nav a,
+nav button {
+  cursor: none;
+}
+
+/* ---------- Project cards ---------- */
+.project-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- Skill pill hover ---------- */
+.skill-pill {
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: none;
+}
+.skill-pill:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.dark .skill-pill:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* ---------- Section label ---------- */
+.section-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Underline link ---------- */
+.underline-link {
+  position: relative;
+  text-decoration: none;
+}
+.underline-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+.underline-link:hover::after {
+  width: 100%;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+/* ---------- Selection ---------- */
+/* ---------- Selection ---------- */
+::selection {
+  background: transparent;
+}
+.dark ::selection {
+  background: #fff;
+  color: #000;
+}
+
+/* ---------- Light mode text contrast boost ---------- */
+/* ---------- Light mode text contrast boost ---------- */
+:not(.dark) .text-black\/60,
+:not(.dark) .text-black\/70,
+:not(.dark) .text-black\/40,
+:not(.dark) .text-black\/50,
+:not(.dark) .text-black\/35,
+:not(.dark) .text-black\/30 {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
