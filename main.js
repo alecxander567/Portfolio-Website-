@@ -3,8 +3,10 @@
 // ============================================
 function applyTheme() {
   const saved = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const isDark = saved === "dark" || (saved === null && prefersDark);
+  // Default to dark mode for every new visitor, regardless of system
+  // preference. Once someone toggles the button, their choice is
+  // remembered in localStorage and respected on future visits.
+  const isDark = saved !== "light";
   document.documentElement.classList.toggle("dark", isDark);
   updateThemeBtn(isDark);
 }
